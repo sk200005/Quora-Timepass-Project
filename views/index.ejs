@@ -15,6 +15,9 @@
             <h4 class="content"><%= post.content %></h4>
         </div>
     <% } %>
-    <button class="btn"> Add Post</button>
+    <br><br>
+    <form action="/posts/new" method="get">
+        <button type="submit">Create a Post</button>
+    </form>
 </body>
 </html>
