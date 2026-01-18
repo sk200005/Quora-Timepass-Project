@@ -21,10 +21,25 @@ let posts = [
         content : "I am No 2 ODI Batter"
     }
 ]
-
 app.get("/posts" , (req,res)=>{
     res.render("./index.ejs" , {posts})
 })
+
+app.get("/posts/new" , (req,res)=>{
+    res.render("./new.ejs")
+})
+
+app.post("/posts" , (req,res)=>{
+    
+    let {username, content} = req.body
+    posts.push({username, content})
+    res.send("Post is Accepted..." )
+})
+
+
+
+
+
 app.listen(8000, ()=>{
     console.log("App is Listening to port 8000")
 })
