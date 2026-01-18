@@ -6,6 +6,8 @@ app.set("view engine", "ejs")
 app.set("views", path.join(__dirname, "views"));
 
 app.use(express.static(path.join(__dirname, "public")))
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 let posts = [
     {
@@ -32,7 +34,7 @@ app.get("/posts/new" , (req,res)=>{
 app.post("/posts" , (req,res)=>{
     
     let {username, content} = req.body
-    posts.push({username, content})
+    posts.push({username,content})
     res.send("Post is Accepted..." )
 })
 
